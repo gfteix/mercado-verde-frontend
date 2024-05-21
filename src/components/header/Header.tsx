@@ -1,7 +1,7 @@
 import React from 'react';
 import './Header.css';
 import Logo from '../../assets/logo.svg'
-import ProfileButton from '../profile-button/ProfileButton';
+import ProfileButton from '../profileButton/ProfileButton';
 
 const Header: React.FC = () => {
   return (

@@ -1,6 +1,6 @@
 
 import './App.css'
-import ProductCard from './components/product-card/ProductCard'
+import ProductCard from './components/productCard/ProductCard'
 import laranja from './assets/laranja.jpg'
 import kiwi from './assets/kiwi.jpg'
 import limaoSiciliano from './assets/limao_siciliano.jpg'
