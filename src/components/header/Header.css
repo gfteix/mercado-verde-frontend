@@ -1,0 +1,31 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .left-section {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: 50px;
+  }
+  
+  .home {
+    font-size: 16px;
+    color: #3D3D3D;
+    font-family: mont;
+  }
+  
+  .right-section {
+    font-size: 18px;
+    margin-right: 100px;
+  }
+
