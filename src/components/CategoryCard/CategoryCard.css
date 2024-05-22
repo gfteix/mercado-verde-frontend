@@ -1,0 +1,29 @@
+
+.category-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    margin: 10px;
+    width: 180px;
+    height: 35px;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    justify-content: flex-start;
+    align-items: center;
+
+    cursor: pointer;
+}
+
+.category-image {
+    justify-content: center;
+    display: flex;
+    max-height: 40px;
+}
+
+.category-name h3 {
+    text-wrap: wrap;
+    font-size: 18px;
+    color: #2F2F2F;
+}

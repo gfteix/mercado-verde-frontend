@@ -14,12 +14,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   return (
     <div className="product-card">
       <div className="unit-tag">Unidade</div>
-      <div className="image-div">
+      <div className="image-container">
         <img src={product.image} alt={product.name} className="product-image" />
       </div>
       <div className="card-bottom">
         <div className="card-bottom-left">
-          <div className="product-name-div">
+          <div className="product-name-container">
             <h3 className="product-name">{product.name}</h3>
           </div>
             <p className="product-price">R${product.price.toFixed(2)}</p>

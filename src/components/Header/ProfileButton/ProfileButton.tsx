@@ -15,7 +15,7 @@ const ProfileButton: React.FC<ProfileButtonProps> = ({ user }) => {
         <div className="icon">
             <VscAccount size={25}/>
         </div>
-        <div className="name-div">
+        <div className="name-container">
             <p>{user.name}</p>
         </div>
         <div className="right-arrow">
