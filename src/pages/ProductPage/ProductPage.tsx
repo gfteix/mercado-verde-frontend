@@ -1,9 +1,10 @@
 import ProductCard from '../../components/ProductCard/ProductCard';
-import laranja from '../assets/laranja.jpg'
-import kiwi from '../assets/kiwi.jpg'
-import limaoSiciliano from '../assets/limao_siciliano.jpg'
-import pimentao from '../assets/pimentao.jpg'
-import alface from '../assets/alface.jpg'
+import laranja from '../../assets/laranja.jpg'
+import kiwi from '../../assets/kiwi.jpg'
+import limaoSiciliano from '../../assets/limao_siciliano.jpg'
+import pimentao from '../../assets/pimentao.jpg'
+import alface from '../../assets/alface.jpg'
+import './ProductPage.css'
 
 const products = [
   { name: 'Laranja', price: 1.00, rating: 5, image: laranja },
@@ -15,15 +16,16 @@ const products = [
 
 const ProductPage = () => {
   return (
-    <>
+    <main>
       <div className="title-container">
         <h2>Produtos</h2>
-      </div><div className="content-container">
+      </div>
+      <div className="content-container">
         {products.map((product, index) => (
           <ProductCard key={index} product={product} />
         ))}
       </div>
-    </>
+    </main>
   );
 };
 

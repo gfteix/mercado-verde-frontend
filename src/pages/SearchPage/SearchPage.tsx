@@ -18,7 +18,7 @@ const categories = [
 
 const SearchPage = () => {
   return (
-    <>
+    <main>
       <div className="title-container">
         <h2>Pesquisa</h2>
       </div>
@@ -32,7 +32,7 @@ const SearchPage = () => {
           ))}
         </div>
       </div>
-    </>
+    </main>
   );
 };
 
