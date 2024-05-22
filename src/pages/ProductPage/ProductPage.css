@@ -12,3 +12,19 @@
     align-items: center;
     text-align: center;
 }
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: center;
+    gap: 3vh;
+    border-radius: 10px;
+  
+    min-height: 80vh;
+    max-width: 95vw;
+  
+    margin: 0 auto;
+    margin-top: 20px;
+    background-color: white;
+  }
