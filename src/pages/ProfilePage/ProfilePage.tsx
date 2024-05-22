@@ -2,6 +2,7 @@ import BlankContainer from "../../components/BlankContainer/BlankContainer";
 import Header from "../../components/Header/Header";
 import ProfileCard from '../../components/ProfileCard/ProfileCard';
 import './ProfilePage.css'
+
 const user = {
   id: 'some id',
   name: 'Fulano',
@@ -24,13 +25,16 @@ const ProfilePage = () => {
   return (
     <>
       <Header></Header>
-      <BlankContainer >
-        <div className="title-container">
-          <h2>Perfil</h2>
-        </div>
-        <div className="content-container">
-          <ProfileCard user={user} key={user.id}/>
-        </div>
+      <BlankContainer>
+        <main className="profile-page-container">
+          <div className="title-container">
+            <h2>Perfil</h2>
+          </div>
+          <div className="content-container">
+            <ProfileCard user={user} key={user.id}/>
+          </div>
+        </main>
+
       </BlankContainer>
      
     </>
