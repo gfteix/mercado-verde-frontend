@@ -11,7 +11,6 @@ const LoginPage = () => {
               <h3 className="welcome-message">Olá, seja bem vindo ao <a className="mercado-verde">Mercado Verde!</a></h3>
           </div>
           <LoginForm/>
-          <p>Não tem uma conta? <a href="">Cadastre-se</a></p>
         </div>
    </main>
   );

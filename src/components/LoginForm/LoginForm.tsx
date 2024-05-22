@@ -44,6 +44,7 @@ const LoginForm: React.FC = () => {
       </div>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <button type="submit">Login</button>
+      <p>Não tem uma conta? <a href="">Cadastre-se</a></p>
     </form>
   );
 };

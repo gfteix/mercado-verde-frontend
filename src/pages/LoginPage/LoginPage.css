@@ -1,16 +1,14 @@
 .login-page-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    text-align: center;
-    height: 100vh;
-    background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  background-color: white;
   }
 
-  .login-content-container {
-    margin-top: 100px;
-  }
+
 
   .mercado-verde {
     color: #3DCD94;
