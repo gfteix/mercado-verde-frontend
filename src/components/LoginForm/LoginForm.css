@@ -3,13 +3,13 @@ form {
     padding: 10px;
     text-align: center;
     margin: 10px;
-    width: 300px;
-
-
+    width: 500px;
+    height: 300px;
     display: flex;
     flex-direction: column;
-    gap: 30px;
     align-items: center;
+    justify-content: center;
+    gap: 30px;
 }
 
 button {

@@ -5,8 +5,17 @@
     justify-content: flex-start;
     align-items: center;
     text-align: center;
-    border-radius: 10px;
-
     height: 100vh;
     background-color: white;
+  }
+
+  .login-content-container {
+    margin-top: 100px;
+  }
+
+  .mercado-verde {
+    color: #3DCD94;
+  }
+  .welcome-message {
+    font-size: 20px;
   }
