@@ -6,6 +6,7 @@ import LegumesImage from '../../assets/legumes.svg'
 import TuberculosImage from '../../assets/tuberculos.svg'
 import VerdurasImage from '../../assets/verduras.svg'
 import './SearchPage.css'
+import Header from "../../components/Header/Header";
 
 const categories = [
   { name: 'Caules', image: CaulesImage },
@@ -18,7 +19,10 @@ const categories = [
 
 const SearchPage = () => {
   return (
-    <main>
+    <>
+      <Header>
+      </Header>
+      <main>
       <div className="title-container">
         <h2>Pesquisa</h2>
       </div>
@@ -33,6 +37,7 @@ const SearchPage = () => {
         </div>
       </div>
     </main>
+    </>
   );
 };
 
