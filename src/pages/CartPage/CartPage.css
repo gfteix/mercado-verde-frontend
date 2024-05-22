@@ -1,8 +1,8 @@
-.title-container {
+.cart-page-container .title-container {
     margin-top: 5vh;
 }
 
-.content-container {
+.cart-page-container .content-container {
     width: 70vw;
     display: flex;
     flex-direction: column;
@@ -12,31 +12,24 @@
     gap: 25px;
 }
 
-main {
+.cart-page-container {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     text-align: center;
     gap: 3vh;
-    border-radius: 10px;
-  
-    min-height: 80vh;
-    max-width: 95vw;
-  
-    margin: 0 auto;
-    margin-top: 20px;
-    background-color: white;
   }
 
-  .total-container {
+.total-container {
+    display: flex;
     background-color: #3DCD94;
     color: white;
     font-size: 20px;
     font-weight: bold;
     height: 40px;
-    display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin-top: auto;
+
+  
 }

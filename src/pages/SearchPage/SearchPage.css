@@ -1,8 +1,8 @@
-.title-container {
+.search-page-container .title-container {
     margin-top: 5vh;
 }
 
-.content-container {
+.search-page-container .content-container {
     display: flex;
     gap: 10px;
     flex-direction: column;
@@ -37,18 +37,10 @@ input {
     flex-direction: row;
 }
 
-main {
+.search-page-container {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     text-align: center;
     gap: 3vh;
-    border-radius: 10px;
-  
-    min-height: 80vh;
-    max-width: 95vw;
-  
-    margin: 0 auto;
-    margin-top: 20px;
-    background-color: white;
   }
