@@ -1,9 +1,7 @@
-import BlankContainer from '../../components/BlankContainer/BlankContainer';
-import Header from '../../components/Header/Header';
 import ProductCard from '../../components/ProductCard/ProductCard';
 import { getProductImage } from '../../utils/image-finder';
 
-import './ProductPage.css'
+import './ProductsPage.css'
 
 const products = [
   { name: 'Laranja', price: 1.00, rating: 5, image: getProductImage('laranja') },
@@ -15,21 +13,16 @@ const products = [
 
 const ProductPage = () => {
   return (
-    <>
-    <Header></Header>
-    <BlankContainer >
-      <main className="product-page-container">
-        <div className="title-container">
-          <h2>Produtos</h2>
-        </div>
-        <div className="content-container">
-          {products.map((product, index) => (
-            <ProductCard key={index} product={product} />
-          ))}
-        </div>
-      </main>
-    </BlankContainer>
-    </>
+    <main className="product-page-container">
+      <div className="title-container">
+        <h2>Produtos</h2>
+      </div>
+      <div className="content-container">
+        {products.map((product, index) => (
+          <ProductCard key={index} product={product} />
+        ))}
+      </div>
+    </main>
   );
 };
 

@@ -1,5 +1,5 @@
 
-form {
+.login-form {
     padding: 10px;
     text-align: center;
     margin: 10px;
@@ -12,7 +12,7 @@ form {
     gap: 30px;
 }
 
-button {
+.login-form button {
     border: 1px solid #ddd;
     border-radius: 10px;
     height: 40px;
@@ -24,7 +24,7 @@ button {
     cursor: pointer;
 }
 
-input {
+.login-form input {
     width: 400px;
     border: 1px solid #ddd;
     border-radius: 10px;

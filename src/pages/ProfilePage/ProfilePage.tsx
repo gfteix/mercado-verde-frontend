@@ -1,5 +1,3 @@
-import BlankContainer from "../../components/BlankContainer/BlankContainer";
-import Header from "../../components/Header/Header";
 import ProfileCard from '../../components/ProfileCard/ProfileCard';
 import './ProfilePage.css'
 
@@ -15,29 +13,18 @@ const user = {
       country: 'Brasil',
       postalCode: '1234567-1',
       neighborhood: 'Centro'
-  },
-  paymentMethod: {
-      type: 'Cartão de Crédito',
-      number: '**** **** **** 4444'
   }
 }
 const ProfilePage = () => {
   return (
-    <>
-      <Header></Header>
-      <BlankContainer>
-        <main className="profile-page-container">
-          <div className="title-container">
-            <h2>Perfil</h2>
-          </div>
-          <div className="content-container">
-            <ProfileCard user={user} key={user.id}/>
-          </div>
-        </main>
-
-      </BlankContainer>
-     
-    </>
+    <main className="profile-page-container">
+      <div className="title-container">
+        <h2>Perfil</h2>
+      </div>
+      <div className="content-container">
+        <ProfileCard user={user} key={user.id}/>
+      </div>
+    </main>
   );
 };
 

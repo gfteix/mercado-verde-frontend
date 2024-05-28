@@ -7,7 +7,7 @@ export interface RegisterPayload {
     street: string;
     houseNumber: string;
     neighborhood: string;
-    stateCode: string;
+    state: string;
     city: string;
     country: string;
     zipCode: string;

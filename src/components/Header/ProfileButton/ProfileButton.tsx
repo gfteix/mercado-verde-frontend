@@ -2,6 +2,7 @@ import React from 'react';
 import './ProfileButton.css';
 
 import { VscAccount, VscChevronRight } from "react-icons/vsc";
+import { useNavigate } from 'react-router-dom';
 
 interface ProfileButtonProps {
   user: {
@@ -10,8 +11,14 @@ interface ProfileButtonProps {
 }
 
 const ProfileButton: React.FC<ProfileButtonProps> = ({ user }) => {
+  const navigate = useNavigate();
+
+  function handleClick() {
+    navigate('/profile');
+  }
+
   return (
-    <div className="profile-button">
+    <div onClick={handleClick} className="profile-button">
         <div className="icon">
             <VscAccount size={25}/>
         </div>

@@ -13,10 +13,6 @@ interface ProfileCardProps {
         city: string;
         country: string;
         postalCode: string;
-    },
-    paymentMethod: {
-        type: string;
-        number: string;
     }
   };
 }
@@ -39,9 +35,9 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ user }) => {
         <p>{user.address.city}, {user.address.country}</p>
       </div>
       <div className="data-container">
-        <h4>Dados para pagamento</h4>
-        <p>{user.paymentMethod.type}</p>
-        <p>{user.paymentMethod.number}</p>
+        <h4>Dados de pagamento</h4>
+        <p>Cartão de Crédito</p>
+        <p>**** **** **** 4444</p>
       </div>
     </div>
   );

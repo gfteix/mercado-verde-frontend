@@ -4,6 +4,7 @@ import './BlankContainer.css';
 type BlankContainerProps = {
     children: ReactNode
 }
+
 const BlankContainer: React.FC<BlankContainerProps> = (props) => {
   return (
     <main className="blank-container">

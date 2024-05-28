@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { login, LoginPayload } from '../../api/user';
+import { Link } from 'react-router-dom';
+
 import './LoginForm.css'
 
 const LoginForm: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
-
+  
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const payload: LoginPayload = { email, password };
@@ -21,7 +23,7 @@ const LoginForm: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="login-form" onSubmit={handleSubmit}>
       <div>
         <input
             placeholder="Email"
@@ -44,7 +46,7 @@ const LoginForm: React.FC = () => {
       </div>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <button type="submit">Login</button>
-      <p>Não tem uma conta? <a href="">Cadastre-se</a></p>
+      <p>Não tem uma conta? <Link to='/register'>Cadastre-se</Link></p>
     </form>
   );
 };
