@@ -98,7 +98,7 @@ const RegisterForm: React.FC = () => {
             </div>
             {error && <p style={{ color: 'red' }}>{error}</p>}
             <button type="submit" disabled={isLoading}>Cadastrar</button>
-            <p>Já tem uma conta? <Link to='/'>Login</Link></p>
+            <p>Já tem uma conta? <Link className="page-link" to='/'>Login</Link></p>
         </form>
     );
 };
