@@ -1,28 +1,30 @@
 import ProfileCard from '../../components/ProfileCard/ProfileCard';
+import { useAuth } from '../../contexts/auth';
 import './ProfilePage.css'
 
-const user = {
-  id: 'some id',
-  name: 'Fulano',
-  email: 'fulano@email.com',
-  address: {
-      street: 'Rua A',
-      houseNumber: '1',
-      city: 'Campinas',
-      stateCode: 'SP',
-      country: 'Brasil',
-      postalCode: '1234567-1',
-      neighborhood: 'Centro'
-  }
-}
 const ProfilePage = () => {
+  const { user } = useAuth()
+
+  const formattedUser = {
+    email: user?.email ?? '',
+    name: user?.name ?? '',
+    address: {
+      city: user?.city ?? '',
+      country: user?.country ?? '',
+      houseNumber: user?.houseNumber ?? '',
+      neighborhood: user?.neighborhood ?? '',
+      postalCode: user?.zipCode ?? '',
+      street: user?.street ?? ''
+    }
+  }
+
   return (
     <main className="profile-page-container">
       <div className="title-container">
         <h2>Perfil</h2>
       </div>
       <div className="content-container">
-        <ProfileCard user={user} key={user.id}/>
+        <ProfileCard user={formattedUser} key={user?.id ?? ''}/>
       </div>
     </main>
   );

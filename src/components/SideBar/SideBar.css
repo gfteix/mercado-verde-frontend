@@ -1,0 +1,120 @@
+.sidebar {
+    height: 100%;
+    width: 80px; /* Width when partially open */
+    position: fixed;
+    left: 0;
+    background-color: white;
+    overflow-x: hidden;
+    transition: width 0.3s;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .sidebar.open {
+    width: 250px; /* Full width when open */
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 70%;
+  }
+  
+  img {
+    width: 20px;
+  }
+
+  .sidebar ul li {
+    text-decoration: none;
+    width: 100%;
+    height: 40px;
+    border: 1px solid #E6FCF5;
+    border-radius: 10px;
+    color: #424242;
+    background-color: #E6FCF5;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+  }
+  
+  .sidebar.open ul {
+    width: 80%;
+  }
+
+  .sidebar.open ul li {
+    justify-content: flex-start;
+  }
+
+  .sidebar ul li a {
+    color: #424242;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+  }
+
+  .sidebar ul li a .text {
+    opacity: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: opacity 0.3s;
+  }
+  
+  .sidebar.open ul li a .text {
+    opacity: 1;
+  }
+
+  .sidebar ul li:hover {
+    color: #f1f1f1;
+  }
+
+  .button-container {
+    border-top: 0.5px solid #DDDDDD;
+    border-bottom: 0.5px solid #DDDDDD;
+    border-left: none;
+    border-right: none;
+    width: -moz-available;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .open-btn {
+    background-color: #00DF98;
+    opacity: 0.5;
+    color: white;
+    border-radius: 50px;
+    border: none;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    height: 25px;
+    width: 25px;
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    background: none;
+    border: none;
+    color: #818181;
+    cursor: pointer;
+  }
+  
+  .close-btn:hover {
+    color: #f1f1f1;
+  }
+  

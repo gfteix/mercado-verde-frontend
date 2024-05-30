@@ -4,8 +4,13 @@
     max-width: 90vw;
     margin-top: 5vh;
     margin-bottom: 0;
-    margin-left: auto;
-    margin-right: auto;
+
+ /* 
+ side bar = 80 px
+ container margin-left = 150px
+ container margin -right = 150 - 80 = 70
+ */
+    margin-left: 150px;
+    margin-right: 70px;
     background-color: white;
-    padding: 50px;
 }

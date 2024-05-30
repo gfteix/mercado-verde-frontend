@@ -89,11 +89,11 @@ const RegisterForm: React.FC = () => {
                     <input type="text" name="country" value={formData.country} onChange={handleChange} placeholder="País" required />
                 </div>
                 <div className='div10 input-container'>
-                    <input type="text" name="zipCode" value={formData.zipCode} onChange={handleChange} placeholder="CEP"required />
+                    <input type="text" name="zipCode" value={formData.zipCode} onChange={handleChange} placeholder="CEP" required />
                 </div>
             </div>
             {error && <p style={{ color: 'red' }}>{error}</p>}
-            <button type="submit" disabled={isFormValid}>Cadastrar</button>
+            <button type="submit" disabled={!isFormValid}>Cadastrar</button>
             <p>Já tem uma conta? <Link className="page-link" to='/'>Fazer Login</Link></p>
         </form>
     );
