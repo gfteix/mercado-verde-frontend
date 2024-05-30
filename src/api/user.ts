@@ -21,7 +21,6 @@ export interface LoginPayload {
 export interface User {
   id: string;
   name: string;
-  password: string;
   email: string;
   street: string;
   houseNumber: string;
@@ -60,7 +59,7 @@ export const register = async (data: RegisterPayload) => {
   return response.json();
 };
 
-export const login = async (data: LoginPayload) => {
+export const login = async (data: LoginPayload): Promise<LoginResponse> => {
   const response = await fetch(`${API_URL}/login`, {
     method: 'POST',
     headers: {
@@ -77,6 +76,8 @@ export const login = async (data: LoginPayload) => {
 };
 
 export const getUser = async (token: string) => {
+  console.log(token)
+
   const response = await fetch(`${API_URL}/users/profile`, {
     method: 'GET',
     headers: {

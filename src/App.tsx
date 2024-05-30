@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import './App.css'
 import LoginPage from './pages/LoginPage/LoginPage'
 import RegisterPage from './pages/RegisterPage/RegisterPage'
@@ -11,45 +11,37 @@ import ProfilePage from './pages/ProfilePage/ProfilePage'
 
 import { AuthProvider, useAuth } from "./contexts/auth";
 
-
-/*
 interface PrivateRouteProps {
   element: React.ReactElement;
 }
 
-
-const PrivateRoute: React.FC<PrivateRouteProps> = ({ element }) => {
-  return isAuthenticated() ? element : <Navigate to="/" replace />;
-};*/
-
-
-const AppRoutes: React.FC = () => {
-  const { signed } = useAuth();
-  console.log(signed)
-  return signed ? 
-    <Routes>
-      <Route path="/" element={<ApplicationLayout />}>
-        <Route path="products" index element={<ProductsPage />} />
-        <Route path="search" index element={<SearchPage />} />
-        <Route path="cart" index element={<CartPage />} />
-        <Route path="profile" index element={<ProfilePage />} />
-      </Route>
-    </Routes>
-    : 
-    <Routes>
-      <Route path="/" element={<PublicLayout />}>
-        <Route index element={<LoginPage />} />
-        <Route path="register" element={<RegisterPage />} />
-      </Route>
-    </Routes>
-};
-
 function App() {
+  const PrivateRoute: React.FC<PrivateRouteProps> = ({ element }) => {
+    const { signed } = useAuth();
+
+    console.log('signed: ' + signed)
+
+    return signed ? element : <Navigate to="/login" replace />;
+  };
+
   return (
    <BrowserRouter >
       <AuthProvider>
-        <AppRoutes/>
-      </AuthProvider>
+      <Routes>
+      {/* Public Routes */}
+      <Route element={<PublicLayout />}>
+        <Route index path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+      </Route>
+      {/* Private Routes */}
+      <Route path = "/" element={<ApplicationLayout />}>
+        <Route index element={<PrivateRoute element={<ProductsPage />} />} />
+        <Route path="search" index element={<PrivateRoute element={<SearchPage />} />} />
+        <Route path="cart" index element={<PrivateRoute element={<CartPage />} />} />
+        <Route path="profile" index element={<PrivateRoute element={<ProfilePage />} />} />
+      </Route>
+    </Routes>      
+    </AuthProvider>
    </BrowserRouter>
   )
 }

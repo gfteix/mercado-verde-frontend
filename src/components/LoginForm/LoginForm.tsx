@@ -1,12 +1,13 @@
 import React, { ChangeEvent, FormEvent, useState, useEffect } from 'react';
 import { LoginPayload } from '../../api/user';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './LoginForm.css';
 import { useAuth } from '../../contexts/auth';
 
 const LoginForm: React.FC = () => {
   const { signIn } = useAuth()
-
+  const navigate = useNavigate();
+  
   const [formData, setFormData] = useState<LoginPayload>({
     email: '',
     password: '',
@@ -28,20 +29,13 @@ const LoginForm: React.FC = () => {
     }));
   };
 
-  const cleanForm = () => {
-    setFormData({
-      email: '',
-      password: '',
-    });
-  };
-
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setError(null);
 
     try {
       await signIn(formData)
-      cleanForm();
+      navigate('/')
     } catch (err) {
       if (err instanceof Error) {
         setError(err.message);

@@ -1,16 +1,13 @@
 import React, { useState, FormEvent, ChangeEvent } from 'react';
 import { RegisterPayload } from '../../api/user';
 import './RegisterForm.css'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from "../../contexts/auth";
 
 const RegisterForm: React.FC = () => {
     const { signUp } = useAuth();
+    const navigate = useNavigate();
 
-    function handleSign() {
-        signUp(formData);
-    }
-    
     const [formData, setFormData] = useState<RegisterPayload>({
         email: '',
         password: '',
@@ -45,28 +42,13 @@ const RegisterForm: React.FC = () => {
         setIsFormValid(isValid)
     };
 
-    const cleanForm = () => {
-        setFormData({
-            email: '',
-            password: '',
-            name: '',
-            street: '',
-            houseNumber: '',
-            neighborhood: '',
-            state: '',
-            city: '',
-            country: '',
-            zipCode: ''
-          });
-    }
-
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
         setError(null);
 
         try {
-            handleSign();
-            cleanForm();
+            await signUp(formData);
+            navigate('/')
         } catch (err) {
             if (err instanceof Error){
                 setError(err.message);
