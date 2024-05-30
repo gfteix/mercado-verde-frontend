@@ -18,6 +18,32 @@ export interface LoginPayload {
     password: string;
 }
 
+export interface User {
+  id: string;
+  name: string;
+  password: string;
+  email: string;
+  street: string;
+  houseNumber: string;
+  neighborhood: string;
+  city: string;
+  state: string;
+  country: string;
+  zipCode: string;  
+  createdAt: Date;  
+  updatedAt: Date;
+}
+
+export interface RegisterResponse {
+  user: User;
+  accessToken: string;
+}
+
+
+export interface LoginResponse {
+  accessToken: string;
+}
+
 export const register = async (data: RegisterPayload) => {
   const response = await fetch(`${API_URL}/users`, {
     method: 'POST',
@@ -47,5 +73,21 @@ export const login = async (data: LoginPayload) => {
     throw new Error('Failed to login');
   }
 
-  return await response.json();
+  return await response.json() as LoginResponse;
 };
+
+export const getUser = async (token: string) => {
+  const response = await fetch(`${API_URL}/users/profile`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + token
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error('Failed to get user data');
+  }
+
+  return await response.json() as { user: User };
+}

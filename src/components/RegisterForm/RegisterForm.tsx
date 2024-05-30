@@ -1,9 +1,16 @@
 import React, { useState, FormEvent, ChangeEvent } from 'react';
-import { RegisterPayload, register } from '../../api/user';
+import { RegisterPayload } from '../../api/user';
 import './RegisterForm.css'
 import { Link } from 'react-router-dom';
+import { useAuth } from "../../contexts/auth";
 
 const RegisterForm: React.FC = () => {
+    const { signUp } = useAuth();
+
+    function handleSign() {
+        signUp(formData);
+    }
+    
     const [formData, setFormData] = useState<RegisterPayload>({
         email: '',
         password: '',
@@ -17,8 +24,9 @@ const RegisterForm: React.FC = () => {
         zipCode: ''
     });
 
+    const [isFormValid, setIsFormValid] = useState(false);
+
     const [error, setError] = useState<string | null>(null);
-    const [isLoading, setIsLoading] = useState<boolean>(false);
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
@@ -26,6 +34,15 @@ const RegisterForm: React.FC = () => {
             ...formData,
             [name]: value
         });
+
+        let isValid = true
+        for (const key in formData) {
+            if(!formData[key as keyof RegisterPayload]) {
+                isValid = false
+            }
+        }
+
+        setIsFormValid(isValid)
     };
 
     const cleanForm = () => {
@@ -45,11 +62,10 @@ const RegisterForm: React.FC = () => {
 
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
-        setIsLoading(true);
         setError(null);
 
         try {
-            await register(formData);
+            handleSign();
             cleanForm();
         } catch (err) {
             if (err instanceof Error){
@@ -57,8 +73,6 @@ const RegisterForm: React.FC = () => {
             } else {
                 setError(JSON.stringify(err, null, 2))
             }
-        } finally {
-            setIsLoading(false);
         }
     };
 
@@ -93,12 +107,12 @@ const RegisterForm: React.FC = () => {
                     <input type="text" name="country" value={formData.country} onChange={handleChange} placeholder="País" required />
                 </div>
                 <div className='div10 input-container'>
-                    <input type="text" name="cep" value={formData.zipCode} onChange={handleChange} placeholder="CEP"required />
+                    <input type="text" name="zipCode" value={formData.zipCode} onChange={handleChange} placeholder="CEP"required />
                 </div>
             </div>
             {error && <p style={{ color: 'red' }}>{error}</p>}
-            <button type="submit" disabled={isLoading}>Cadastrar</button>
-            <p>Já tem uma conta? <Link className="page-link" to='/'>Login</Link></p>
+            <button type="submit" disabled={isFormValid}>Cadastrar</button>
+            <p>Já tem uma conta? <Link className="page-link" to='/'>Fazer Login</Link></p>
         </form>
     );
 };

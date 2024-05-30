@@ -1,4 +1,4 @@
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 import LoginPage from './pages/LoginPage/LoginPage'
 import RegisterPage from './pages/RegisterPage/RegisterPage'
@@ -9,33 +9,47 @@ import PublicLayout from './layouts/public-layouts'
 import ApplicationLayout from './layouts/application-layouts'
 import ProfilePage from './pages/ProfilePage/ProfilePage'
 
+import { AuthProvider, useAuth } from "./contexts/auth";
+
+
+/*
 interface PrivateRouteProps {
   element: React.ReactElement;
 }
 
-const isAuthenticated = () => { return true }
 
 const PrivateRoute: React.FC<PrivateRouteProps> = ({ element }) => {
   return isAuthenticated() ? element : <Navigate to="/" replace />;
+};*/
+
+
+const AppRoutes: React.FC = () => {
+  const { signed } = useAuth();
+  console.log(signed)
+  return signed ? 
+    <Routes>
+      <Route path="/" element={<ApplicationLayout />}>
+        <Route path="products" index element={<ProductsPage />} />
+        <Route path="search" index element={<SearchPage />} />
+        <Route path="cart" index element={<CartPage />} />
+        <Route path="profile" index element={<ProfilePage />} />
+      </Route>
+    </Routes>
+    : 
+    <Routes>
+      <Route path="/" element={<PublicLayout />}>
+        <Route index element={<LoginPage />} />
+        <Route path="register" element={<RegisterPage />} />
+      </Route>
+    </Routes>
 };
 
 function App() {
   return (
    <BrowserRouter >
-      <Routes>
-      {/* Public Routes */}
-      <Route path="/" element={<PublicLayout />}>
-        <Route index element={<LoginPage />} />
-        <Route path="register" element={<RegisterPage />} />
-      </Route>
-      {/* Private Routes */}
-      <Route element={<ApplicationLayout />}>
-        <Route path="/products" index element={<PrivateRoute element={<ProductsPage />} />} />
-        <Route path="/search" index element={<PrivateRoute element={<SearchPage />} />} />
-        <Route path="/cart" index element={<PrivateRoute element={<CartPage />} />} />
-        <Route path="/profile" index element={<PrivateRoute element={<ProfilePage />} />} />
-      </Route>
-    </Routes>
+      <AuthProvider>
+        <AppRoutes/>
+      </AuthProvider>
    </BrowserRouter>
   )
 }

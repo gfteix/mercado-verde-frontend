@@ -1,24 +1,53 @@
-import React, { useState } from 'react';
-import { login, LoginPayload } from '../../api/user';
+import React, { ChangeEvent, FormEvent, useState, useEffect } from 'react';
+import { LoginPayload } from '../../api/user';
 import { Link } from 'react-router-dom';
-
-import './LoginForm.css'
+import './LoginForm.css';
+import { useAuth } from '../../contexts/auth';
 
 const LoginForm: React.FC = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const { signIn } = useAuth()
+
+  const [formData, setFormData] = useState<LoginPayload>({
+    email: '',
+    password: '',
+  });
+
   const [error, setError] = useState<string | null>(null);
-  
-  const handleSubmit = async (e: React.FormEvent) => {
+  const [isFormValid, setIsFormValid] = useState(false);
+
+  useEffect(() => {
+    const isValid = formData.email.trim() !== '' && formData.password.trim() !== '';
+    setIsFormValid(isValid);
+  }, [formData]);
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const cleanForm = () => {
+    setFormData({
+      email: '',
+      password: '',
+    });
+  };
+
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    const payload: LoginPayload = { email, password };
+    setError(null);
 
     try {
-      const response = await login(payload);
-      console.log('Login successful:', response);
-    } catch (error) {
-      setError('Invalid email or password');
-      console.error('Login failed:', error);
+      await signIn(formData)
+      cleanForm();
+    } catch (err) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError(JSON.stringify(err, null, 2));
+      }
     }
   };
 
@@ -26,27 +55,31 @@ const LoginForm: React.FC = () => {
     <form className="login-form" onSubmit={handleSubmit}>
       <div>
         <input
-            placeholder="Email"
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
+          placeholder="Email"
+          type="email"
+          name="email"
+          id="email"
+          value={formData.email}
+          onChange={handleChange}
         />
       </div>
       <div>
         <input
-            placeholder="Senha"
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
+          placeholder="Senha"
+          type="password"
+          name="password"
+          id="password"
+          value={formData.password}
+          onChange={handleChange}
         />
       </div>
       {error && <p style={{ color: 'red' }}>{error}</p>}
-      <button type="submit">Login</button>
-      <p>Não tem uma conta? <Link className="page-link" to='/register'>Cadastre-se</Link></p>
+      <button disabled={!isFormValid} type="submit">
+        Login
+      </button>
+      <p>
+        Não é cadastrado? <Link className="page-link" to='/register'>Criar uma conta</Link>
+      </p>
     </form>
   );
 };

@@ -40,13 +40,17 @@
 }
 
 .register-form button {
-    border: 1px solid #ddd;
-    border-radius: 10px;
+    border: 1px solid #3DCD94;
+    border-radius: 25px;
     height: 40px;
-    width: 150px;
+    width: 200px;
     background-color: #3DCD94;
     color: white;
     font-size: 18px;
     font-weight: bold;
     cursor: pointer;
+}
+
+.register-form button:disabled {
+    opacity: 0.2;
 }
