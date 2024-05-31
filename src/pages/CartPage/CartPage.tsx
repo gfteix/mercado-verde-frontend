@@ -29,10 +29,10 @@ const CartPage = () => {
               <CartItem cartItem={cartItem} key={index}></CartItem>
           ))}
         </div>
+        <div className="total-container">
+          <p>Total: R$ 80,00</p>
+        </div>
       </main>
-      <div className="total-container">
-        <p>Total: R$ 80,00</p>
-      </div>
     </>
     );
   };

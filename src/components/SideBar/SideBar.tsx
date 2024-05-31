@@ -1,13 +1,15 @@
 // src/components/Sidebar.tsx
 import React, { useState } from 'react';
 import './SideBar.css';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import SearchIcon from '../../assets/search.svg'
 import PersonIcon from '../../assets/person.svg'
 import CartIcon from '../../assets/cart.svg'
 import HomeIcon from '../../assets/home.svg'
 
+
 const Sidebar: React.FC = () => {
+    const location = useLocation()
     const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
 
     const toggleSidebar = () => {
@@ -17,33 +19,34 @@ const Sidebar: React.FC = () => {
     
   return (
     <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
-      <div className="button-container">
-        <button className="open-btn" onClick={toggleSidebar}>
+      <div className="button-container"  onClick={toggleSidebar}>
+        
+        <div className="m-icon">
           M
-        </button>
-        { isSidebarOpen ? 'Mercado Verde' : ''}
+        </div>
+        <span className="text">{isSidebarOpen && 'Mercado Verde'}</span> 
       </div> 
 
       <ul>
-        <li>
+        <li className={location.pathname == "/" ? "active" : ''}>
           <Link to="/">
             <img src={HomeIcon}></img>
             <span className="text">{isSidebarOpen && 'Home'}</span> 
           </Link>
         </li>
-        <li>
+        <li className={location.pathname == "/search" ? "active" : ''}>
           <Link to="/search">
             <img src={SearchIcon}></img>
             <span className="text">{isSidebarOpen && 'Pesquisa'}</span> 
           </Link>
         </li>
-        <li>
+        <li className={location.pathname == "/cart" ? "active" : ''}>
           <Link to="/cart">
             <img src={CartIcon}></img>
             <span className="text">{isSidebarOpen && 'Carrinho'}</span> 
           </Link>
         </li>
-        <li>
+        <li className={location.pathname == "/profile" ? "active" : ''}>
           <Link to="/profile">
             <img src={PersonIcon}></img>
             <span className="text">{isSidebarOpen && 'Perfil'}</span> 

@@ -44,9 +44,10 @@
     justify-content: center;
     transition: 0.3s;
   }
-  
-  .sidebar.open ul {
-    width: 80%;
+
+  .sidebar ul li.active {
+    background-color: #3DCD94;
+    color: white;
   }
 
   .sidebar.open ul li {
@@ -57,17 +58,23 @@
     color: #424242;
     text-decoration: none;
     display: flex;
+    flex-direction: row;
     justify-content: center;
   }
 
-  .sidebar ul li a .text {
+  .sidebar.open ul li a {
+    gap: 10px;
+    padding-left: 20px;
+  }
+
+  .sidebar .text {
     opacity: 0;
     white-space: nowrap;
     overflow: hidden;
     transition: opacity 0.3s;
   }
   
-  .sidebar.open ul li a .text {
+  .sidebar.open .text {
     opacity: 1;
   }
 
@@ -80,26 +87,27 @@
     border-bottom: 0.5px solid #DDDDDD;
     border-left: none;
     border-right: none;
-    width: -moz-available;
+    width: inherit;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
   }
 
-  .open-btn {
+  .m-icon {
     background-color: #00DF98;
     opacity: 0.5;
     color: white;
     border-radius: 50px;
     border: none;
-    padding: 20px;
+    padding: 5px;
     text-align: center;
     text-decoration: none;
     font-size: 16px;
     margin: 4px 2px;
-    height: 25px;
-    width: 25px;
+    height: 30px;
+    width: 30px;
+    align-content: center;
+    cursor: pointer;
   }
   
   .close-btn {
