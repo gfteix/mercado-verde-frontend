@@ -1,16 +1,15 @@
 import React from "react";
 import "./ProductCard.css";
+import { useCart } from "../../contexts/cart";
+import { Product } from "../../api/products";
 
-interface ProductCardProps {
-  product: {
-    name: string;
-    price: number;
-    rating: number;
-    image: string;
-  };
+export interface ProductCardProps {
+  product: Product;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+  const { addToCart } = useCart();
+
   return (
     <div className="product-card">
       <div className="unit-tag">Unidade</div>
@@ -24,12 +23,17 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           </div>
           <p className="product-price">R${product.price.toFixed(2)}</p>
           <div className="product-rating">
-            {"★".repeat(product.rating)}
-            {"☆".repeat(5 - product.rating)}
+            {"★".repeat(product.rating as number)}
+            {"☆".repeat(5 - product.rating!)}
           </div>
         </div>
         <div className="card-bottom-right">
-          <button className="add-to-cart-button">+</button>
+          <button
+            onClick={() => addToCart(product)}
+            className="add-to-cart-button"
+          >
+            +
+          </button>
         </div>
       </div>
     </div>

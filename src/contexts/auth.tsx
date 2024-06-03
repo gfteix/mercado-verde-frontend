@@ -49,7 +49,7 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   return (
     <AuthContext.Provider
       value={{
-        signed: Boolean(true),
+        signed: Boolean(accessToken),
         user,
         signIn,
         signUp,

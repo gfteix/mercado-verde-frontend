@@ -1,23 +1,10 @@
 import CartItem from "../../components/CartItem/CartItem";
-import KiwiImage from "../../assets/kiwi.jpg";
 import "./CartPage.css";
-
-const cartItems = [
-  {
-    name: "Kiwi",
-    image: KiwiImage,
-    price: 1.5,
-    quantity: 1,
-  },
-  {
-    name: "Kiwi",
-    image: KiwiImage,
-    price: 1.5,
-    quantity: 1,
-  },
-];
+import { useCart } from "../../contexts/cart";
 
 const CartPage = () => {
+  const { cartItems, addToCart, removeFromCart, total } = useCart();
+
   return (
     <>
       <main className="cart-page-container">
@@ -26,11 +13,17 @@ const CartPage = () => {
         </div>
         <div className="content-container">
           {cartItems.map((cartItem, index) => (
-            <CartItem cartItem={cartItem} key={index}></CartItem>
+            <CartItem 
+            addToCart={addToCart} 
+            removeFromCart={removeFromCart} 
+            cartItem={cartItem} 
+            key={index}
+          >
+          </CartItem>
           ))}
         </div>
         <div className="total-container">
-          <p>Total: R$ 80,00</p>
+          <p>Total: R$ {total}</p>
         </div>
       </main>
     </>

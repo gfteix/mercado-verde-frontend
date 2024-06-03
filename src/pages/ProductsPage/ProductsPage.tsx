@@ -1,27 +1,34 @@
+import { useEffect, useState } from "react";
+import { getProducts } from "../../api/products";
 import ProductCard from "../../components/ProductCard/ProductCard";
+import { useAuth } from "../../contexts/auth";
 import { getProductImage } from "../../utils/image-finder";
 
 import "./ProductsPage.css";
-
-const products = [
-  { name: "Laranja", price: 1.0, rating: 5, image: getProductImage("laranja") },
-  { name: "Kiwi", price: 1.0, rating: 4, image: getProductImage("kiwi") },
-  {
-    name: "Pimentão",
-    price: 5.0,
-    rating: 5,
-    image: getProductImage("pimentao"),
-  },
-  {
-    name: "Limão Siciliano",
-    price: 2.0,
-    rating: 5,
-    image: getProductImage("limaoSiciliano"),
-  },
-  { name: "Alface", price: 2.5, rating: 4, image: getProductImage("alface") },
-];
+import { Product } from "../../types/api/product.interface";
 
 const ProductPage = () => {
+  const { accessToken } = useAuth();
+  const [products, setProducts] = useState<Product[]>([]);
+
+  useEffect(() => {
+    async function buildProducts() {
+      const response = await getProducts(accessToken as string);
+
+      const productList = response.products.map((p) => {
+        return {
+          ...p,
+          rating: 5,
+          image: getProductImage(p.name),
+        };
+      });
+
+      setProducts(productList);
+    }
+
+    buildProducts();
+  }, [accessToken]);
+
   return (
     <main className="product-page-container">
       <div className="title-container">

@@ -3,6 +3,7 @@ import kiwiImage from "../assets/kiwi.jpg";
 import limaoSicilianoImage from "../assets/limao_siciliano.jpg";
 import pimentaoImage from "../assets/pimentao.jpg";
 import alfaceImage from "../assets/alface.jpg";
+import cebolaImage from "../assets/cebola.jpg";
 
 import caulesImage from "../assets/caules.jpg";
 import floresImage from "../assets/flores.jpg";
@@ -15,9 +16,10 @@ function getProductImage(productName: string): string {
   const mapper: { [key: string]: string } = {
     laranja: laranjaImage,
     kiwi: kiwiImage,
-    limaosiciliano: limaoSicilianoImage,
-    pimentao: pimentaoImage,
+    "limão siciliano": limaoSicilianoImage,
+    "pimentão": pimentaoImage,
     alface: alfaceImage,
+    cebola: cebolaImage
   };
 
   return mapper[productName.toLowerCase()] ?? "";

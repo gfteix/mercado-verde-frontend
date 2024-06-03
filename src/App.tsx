@@ -10,6 +10,7 @@ import ApplicationLayout from "./layouts/application-layouts";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 
 import { AuthProvider, useAuth } from "./contexts/auth";
+import { CartProvider } from "./contexts/cart";
 
 interface PrivateRouteProps {
   element: React.ReactElement;
@@ -27,6 +28,7 @@ function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
+      <CartProvider>
         <Routes>
           {/* Public Routes */}
           <Route element={<PublicLayout />}>
@@ -56,6 +58,7 @@ function App() {
             />
           </Route>
         </Routes>
+        </CartProvider>
       </AuthProvider>
     </BrowserRouter>
   );
