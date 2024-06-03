@@ -1,5 +1,5 @@
-import React from 'react';
-import './ProductCard.css';
+import React from "react";
+import "./ProductCard.css";
 
 interface ProductCardProps {
   product: {
@@ -22,14 +22,14 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           <div className="product-name-container">
             <h3 className="product-name">{product.name}</h3>
           </div>
-            <p className="product-price">R${product.price.toFixed(2)}</p>
-            <div className="product-rating">
-                {'★'.repeat(product.rating)}
-                {'☆'.repeat(5 - product.rating)}
-            </div>
+          <p className="product-price">R${product.price.toFixed(2)}</p>
+          <div className="product-rating">
+            {"★".repeat(product.rating)}
+            {"☆".repeat(5 - product.rating)}
+          </div>
         </div>
         <div className="card-bottom-right">
-            <button className="add-to-cart-button">+</button>
+          <button className="add-to-cart-button">+</button>
         </div>
       </div>
     </div>

@@ -1,16 +1,16 @@
 .blank-container {
-    border-radius: 10px;
-    min-height: 70vh;
-    max-width: 90vw;
-    margin-top: 5vh;
-    margin-bottom: 0;
+  border-radius: 10px;
+  min-height: 70vh;
+  max-width: 90vw;
+  margin-top: 5vh;
+  margin-bottom: 0;
 
- /* 
+  /* 
  side bar = 80 px
  container margin-left = 150px
  container margin -right = 150 - 80 = 70
  */
-    margin-left: 150px;
-    margin-right: 70px;
-    background-color: white;
+  margin-left: 150px;
+  margin-right: 70px;
+  background-color: white;
 }

@@ -1,21 +1,21 @@
 .profile-card {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    text-align: left;
-    margin-left: 30px;
-    font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  text-align: left;
+  margin-left: 30px;
+  font-size: 20px;
 }
 
 h4 {
-    color: #7B7B7B;
+  color: #7b7b7b;
 }
 .data-container p {
-    color: black;
+  color: black;
 }
 
 .data-container {
-    display: flex;
-    flex-direction:column;
-    gap: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }

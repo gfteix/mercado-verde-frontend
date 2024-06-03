@@ -1,86 +1,84 @@
 .product-card {
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 10px;
-    text-align: center;
-    margin: 10px;
-    width: 200px;
-    height: 300px;
-  }
-  
-  .card-bottom {
-    display: flex;
-    flex-direction: row;
-  }
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  margin: 10px;
+  width: 200px;
+  height: 300px;
+}
 
-  .card-bottom-right {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
+.card-bottom {
+  display: flex;
+  flex-direction: row;
+}
 
-  }
+.card-bottom-right {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
 
-  .card-bottom-left {
-    width: 100%;
-    text-align: start;
-    padding-left: 10px;
-  }
+.card-bottom-left {
+  width: 100%;
+  text-align: start;
+  padding-left: 10px;
+}
 
 .unit-tag {
-    background-color: #3DCD94;
-    color: white;
-    padding: 2px 8px;
-    border-radius: 12px;
-    font-size: 12px;
-    margin-bottom: 10px;
-    display: inline-block;
-  }
-  
-  .image-container {
-    height: 120px;
-    margin-bottom: 10px;
-  }
-  
-  .product-image {
-    width: 80%;
-    height: auto;
-    min-height: min-content;  
-  }
-  
-  .product-name {
-    font-size: 14px;
-    color: #7B7B7B;
-    margin: 10px 0;
-  }
-  
-  .product-price {
-    font-size: 16px;
-    margin: 10px 0;
-  }
-  
-  .product-rating {
-    color: gold;
-    margin: 10px 0;
-  }
+  background-color: #3dcd94;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
 
-  h3 {
-    text-wrap: nowrap;
-  }
+.image-container {
+  height: 120px;
+  margin-bottom: 10px;
+}
 
-  .add-to-cart-button {
-    background-color: #3DCD94;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-    cursor: pointer;
-  }
-  
-  .add-to-cart-button:hover {
-    background-color: #3DCD94;
-  }
-  
+.product-image {
+  width: 80%;
+  height: auto;
+  min-height: min-content;
+}
+
+.product-name {
+  font-size: 14px;
+  color: #7b7b7b;
+  margin: 10px 0;
+}
+
+.product-price {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.product-rating {
+  color: gold;
+  margin: 10px 0;
+}
+
+h3 {
+  text-wrap: nowrap;
+}
+
+.add-to-cart-button {
+  background-color: #3dcd94;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.add-to-cart-button:hover {
+  background-color: #3dcd94;
+}

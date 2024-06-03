@@ -1,6 +1,13 @@
 /* eslint-disable react-refresh/only-export-components */
 import React, { ReactNode, createContext, useContext, useState } from "react";
-import { LoginPayload, RegisterPayload, User, getUser, login, register } from "../api/user";
+import {
+  LoginPayload,
+  RegisterPayload,
+  User,
+  getUser,
+  login,
+  register,
+} from "../api/user";
 
 interface AuthContextData {
   signed: boolean;
@@ -12,7 +19,7 @@ interface AuthContextData {
 }
 
 interface AuthProviderProps {
-  children: ReactNode
+  children: ReactNode;
 }
 
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
@@ -22,14 +29,14 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [accessToken, setAccessToken] = useState<string | null>(null);
 
   async function signIn(data: LoginPayload): Promise<void> {
-    const response = await login(data)
+    const response = await login(data);
     setAccessToken(response.accessToken);
-    const { user } = await getUser(response.accessToken ?? '')
-    setUser(user)
+    const { user } = await getUser(response.accessToken ?? "");
+    setUser(user);
   }
 
   async function signUp(data: RegisterPayload): Promise<void> {
-    const response = await register(data)
+    const response = await register(data);
     setUser(response.user);
     setAccessToken(response.accessToken);
   }
@@ -40,20 +47,29 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   }
 
   return (
-    <AuthContext.Provider value={{ signed: Boolean(true), user, signIn, signUp, accessToken, signOut }}>
+    <AuthContext.Provider
+      value={{
+        signed: Boolean(true),
+        user,
+        signIn,
+        signUp,
+        accessToken,
+        signOut,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );
 };
 
 function useAuth() {
-    const context = useContext(AuthContext);
-  
-    if (!context) {
-      throw new Error('useAuth must be used within an AuthProvider.');
-    }
-  
-    return context;
+  const context = useContext(AuthContext);
+
+  if (!context) {
+    throw new Error("useAuth must be used within an AuthProvider.");
   }
-  
+
+  return context;
+}
+
 export { AuthProvider, useAuth };

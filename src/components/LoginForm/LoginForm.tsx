@@ -1,23 +1,24 @@
-import React, { ChangeEvent, FormEvent, useState, useEffect } from 'react';
-import { LoginPayload } from '../../api/user';
-import { Link, useNavigate } from 'react-router-dom';
-import './LoginForm.css';
-import { useAuth } from '../../contexts/auth';
+import React, { ChangeEvent, FormEvent, useState, useEffect } from "react";
+import { LoginPayload } from "../../api/user";
+import { Link, useNavigate } from "react-router-dom";
+import "./LoginForm.css";
+import { useAuth } from "../../contexts/auth";
 
 const LoginForm: React.FC = () => {
-  const { signIn } = useAuth()
+  const { signIn } = useAuth();
   const navigate = useNavigate();
-  
+
   const [formData, setFormData] = useState<LoginPayload>({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   });
 
   const [error, setError] = useState<string | null>(null);
   const [isFormValid, setIsFormValid] = useState(false);
 
   useEffect(() => {
-    const isValid = formData.email.trim() !== '' && formData.password.trim() !== '';
+    const isValid =
+      formData.email.trim() !== "" && formData.password.trim() !== "";
     setIsFormValid(isValid);
   }, [formData]);
 
@@ -34,8 +35,8 @@ const LoginForm: React.FC = () => {
     setError(null);
 
     try {
-      await signIn(formData)
-      navigate('/')
+      await signIn(formData);
+      navigate("/");
     } catch (err) {
       if (err instanceof Error) {
         setError(err.message);
@@ -67,12 +68,15 @@ const LoginForm: React.FC = () => {
           onChange={handleChange}
         />
       </div>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {error && <p style={{ color: "red" }}>{error}</p>}
       <button disabled={!isFormValid} type="submit">
         Login
       </button>
       <p>
-        Não é cadastrado? <Link className="page-link" to='/register'>Criar uma conta</Link>
+        Não é cadastrado?{" "}
+        <Link className="page-link" to="/register">
+          Criar uma conta
+        </Link>
       </p>
     </form>
   );

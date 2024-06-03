@@ -1,128 +1,127 @@
 .sidebar {
-    height: 100%;
-    width: 80px; /* Width when partially open */
-    position: fixed;
-    left: 0;
-    background-color: white;
-    overflow-x: hidden;
-    transition: width 0.3s;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    align-items: center;
-    text-align: center;
-  }
-  
-  .sidebar.open {
-    width: 250px; /* Full width when open */
-  }
-  
-  .sidebar ul {
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 70%;
-  }
-  
-  .sidebar img {
-    width: 20px;
-  }
+  height: 100%;
+  width: 80px; /* Width when partially open */
+  position: fixed;
+  left: 0;
+  background-color: white;
+  overflow-x: hidden;
+  transition: width 0.3s;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  text-align: center;
+}
 
-  .sidebar ul li {
-    text-decoration: none;
-    width: 100%;
-    height: 40px;
-    border: 1px solid #E6FCF5;
-    border-radius: 10px;
-    color: #424242;
-    background-color: #E6FCF5;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    transition: 0.3s;
-  }
+.sidebar.open {
+  width: 250px; /* Full width when open */
+}
 
-  .sidebar ul li.active {
-    background-color: #3DCD94;
-    color: white;
-  }
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 70%;
+}
 
-  .sidebar.open ul li {
-    justify-content: flex-start;
-  }
+.sidebar img {
+  width: 20px;
+}
 
-  .sidebar ul li a {
-    color: #424242;
-    text-decoration: none;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
+.sidebar ul li {
+  text-decoration: none;
+  width: 100%;
+  height: 40px;
+  border: 1px solid #e6fcf5;
+  border-radius: 10px;
+  color: #424242;
+  background-color: #e6fcf5;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
 
-  .sidebar.open ul li a {
-    gap: 10px;
-    padding-left: 20px;
-  }
+.sidebar ul li.active {
+  background-color: #3dcd94;
+  color: white;
+}
 
-  .sidebar .text {
-    opacity: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    transition: opacity 0.3s;
-  }
-  
-  .sidebar.open .text {
-    opacity: 1;
-  }
+.sidebar.open ul li {
+  justify-content: flex-start;
+}
 
-  .sidebar ul li:hover {
-    color: #f1f1f1;
-  }
+.sidebar ul li a {
+  color: #424242;
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
 
-  .button-container {
-    border-top: 0.5px solid #DDDDDD;
-    border-bottom: 0.5px solid #DDDDDD;
-    border-left: none;
-    border-right: none;
-    width: inherit;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.sidebar.open ul li a {
+  gap: 10px;
+  padding-left: 20px;
+}
 
-  .m-icon {
-    background-color: #00DF98;
-    opacity: 0.5;
-    color: white;
-    border-radius: 50px;
-    border: none;
-    padding: 5px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 16px;
-    margin: 4px 2px;
-    height: 30px;
-    width: 30px;
-    align-content: center;
-    cursor: pointer;
-  }
-  
-  .close-btn {
-    position: absolute;
-    top: 10px;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-    background: none;
-    border: none;
-    color: #818181;
-    cursor: pointer;
-  }
-  
-  .close-btn:hover {
-    color: #f1f1f1;
-  }
-  
+.sidebar .text {
+  opacity: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: opacity 0.3s;
+}
+
+.sidebar.open .text {
+  opacity: 1;
+}
+
+.sidebar ul li:hover {
+  color: #f1f1f1;
+}
+
+.button-container {
+  border-top: 0.5px solid #dddddd;
+  border-bottom: 0.5px solid #dddddd;
+  border-left: none;
+  border-right: none;
+  width: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.m-icon {
+  background-color: #00df98;
+  opacity: 0.5;
+  color: white;
+  border-radius: 50px;
+  border: none;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  height: 30px;
+  width: 30px;
+  align-content: center;
+  cursor: pointer;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  background: none;
+  border: none;
+  color: #818181;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: #f1f1f1;
+}

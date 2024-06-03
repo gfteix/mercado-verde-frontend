@@ -1,5 +1,5 @@
-import React from 'react';
-import './CategoryCard.css';
+import React from "react";
+import "./CategoryCard.css";
 
 interface CategoryCardProps {
   category: {
@@ -10,14 +10,14 @@ interface CategoryCardProps {
 
 const CategoryCard: React.FC<CategoryCardProps> = ({ category }) => {
   return (
-   <div className="category-card">
-    <div className="category-image">
+    <div className="category-card">
+      <div className="category-image">
         <img src={category.image}></img>
-    </div>
-    <div className="category-name">
+      </div>
+      <div className="category-name">
         <h3>{category.name}</h3>
+      </div>
     </div>
-   </div>
   );
 };
 

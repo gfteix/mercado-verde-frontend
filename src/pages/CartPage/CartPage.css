@@ -1,33 +1,33 @@
 .cart-page-container .title-container {
-    margin-top: 5vh;
+  margin-top: 5vh;
 }
 
 .cart-page-container .content-container {
-    width: 70vw;
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 25px;
+  width: 70vw;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 25px;
 }
 
 .cart-page-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    text-align: center;
-    gap: 3vh;
-    min-height: inherit;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: center;
+  gap: 3vh;
+  min-height: inherit;
+}
 
 .total-container {
-    background-color: #3DCD94;
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    height: 40px;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+  background-color: #3dcd94;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
