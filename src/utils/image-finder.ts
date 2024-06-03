@@ -4,12 +4,12 @@ import limaoSicilianoImage from '../assets/limao_siciliano.jpg'
 import pimentaoImage from '../assets/pimentao.jpg'
 import alfaceImage from '../assets/alface.jpg'
 
-import caulesImage from '../assets/caules.svg'
-import floresImage from '../assets/flores.svg'
-import frutasImage from '../assets/frutas.svg'
-import legumesImage from '../assets/legumes.svg'
-import tuberculosImage from '../assets/tuberculos.svg'
-import verdurasImage from '../assets/verduras.svg'
+import caulesImage from '../assets/caules.jpg'
+import floresImage from '../assets/flores.jpg'
+import frutasImage from '../assets/frutas.jpg'
+import legumesImage from '../assets/legumes.jpg'
+import tuberculosImage from '../assets/tuberculos.jpg'
+import verdurasImage from '../assets/verduras.jpg'
 
 function getProductImage(productName: string): string {
     const mapper : {[key: string]: string} = {

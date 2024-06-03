@@ -9,7 +9,7 @@
     height: 35px;
     display: flex;
     flex-direction: row;
-    gap: 5px;
+    gap: 15px;
     justify-content: flex-start;
     align-items: center;
 
@@ -19,7 +19,11 @@
 .category-image {
     justify-content: center;
     display: flex;
-    max-height: 40px;
+    max-height: 50px;
+}
+
+.category-image img {
+    width: 50px;
 }
 
 .category-name h3 {
