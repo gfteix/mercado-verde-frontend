@@ -20,6 +20,7 @@
 
 .cart-item-name {
   color: #7b7b7b;
+  width: 40px;
 }
 
 .cart-item-price {
@@ -30,10 +31,10 @@
 .cart-item-image {
   justify-content: center;
   display: flex;
-  max-height: 100px;
+  width: 90px;
 }
 
-img {
+.cart-item-image img {
   width: 60%;
 }
 

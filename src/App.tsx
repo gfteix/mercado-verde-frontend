@@ -28,36 +28,36 @@ function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-      <CartProvider>
-        <Routes>
-          {/* Public Routes */}
-          <Route element={<PublicLayout />}>
-            <Route index path="/login" element={<LoginPage />} />
-            <Route path="/register" element={<RegisterPage />} />
-          </Route>
-          {/* Private Routes */}
-          <Route path="/" element={<ApplicationLayout />}>
-            <Route
-              index
-              element={<PrivateRoute element={<ProductsPage />} />}
-            />
-            <Route
-              path="search"
-              index
-              element={<PrivateRoute element={<SearchPage />} />}
-            />
-            <Route
-              path="cart"
-              index
-              element={<PrivateRoute element={<CartPage />} />}
-            />
-            <Route
-              path="profile"
-              index
-              element={<PrivateRoute element={<ProfilePage />} />}
-            />
-          </Route>
-        </Routes>
+        <CartProvider>
+          <Routes>
+            {/* Public Routes */}
+            <Route element={<PublicLayout />}>
+              <Route index path="/login" element={<LoginPage />} />
+              <Route path="/register" element={<RegisterPage />} />
+            </Route>
+            {/* Private Routes */}
+            <Route path="/" element={<ApplicationLayout />}>
+              <Route
+                index
+                element={<PrivateRoute element={<ProductsPage />} />}
+              />
+              <Route
+                path="search"
+                index
+                element={<PrivateRoute element={<SearchPage />} />}
+              />
+              <Route
+                path="cart"
+                index
+                element={<PrivateRoute element={<CartPage />} />}
+              />
+              <Route
+                path="profile"
+                index
+                element={<PrivateRoute element={<ProfilePage />} />}
+              />
+            </Route>
+          </Routes>
         </CartProvider>
       </AuthProvider>
     </BrowserRouter>

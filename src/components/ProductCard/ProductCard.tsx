@@ -1,7 +1,8 @@
 import React from "react";
 import "./ProductCard.css";
 import { useCart } from "../../contexts/cart";
-import { Product } from "../../api/products";
+import { formatProductPrice } from "../../utils/price-formatter";
+import { Product } from "../../types";
 
 export interface ProductCardProps {
   product: Product;
@@ -21,7 +22,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           <div className="product-name-container">
             <h3 className="product-name">{product.name}</h3>
           </div>
-          <p className="product-price">R${product.price.toFixed(2)}</p>
+          <p className="product-price">{formatProductPrice(product.price)}</p>
           <div className="product-rating">
             {"★".repeat(product.rating as number)}
             {"☆".repeat(5 - product.rating!)}

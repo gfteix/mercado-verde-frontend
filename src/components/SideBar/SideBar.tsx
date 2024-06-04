@@ -6,10 +6,12 @@ import SearchIcon from "../../assets/search.svg";
 import PersonIcon from "../../assets/person.svg";
 import CartIcon from "../../assets/cart.svg";
 import HomeIcon from "../../assets/home.svg";
+import { useCart } from "../../contexts/cart";
 
 const Sidebar: React.FC = () => {
   const location = useLocation();
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
+  const { itemsQuantity } = useCart();
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -39,6 +41,7 @@ const Sidebar: React.FC = () => {
           <Link to="/cart">
             <img src={CartIcon}></img>
             <span className="text">{isSidebarOpen && "Carrinho"}</span>
+            <div className="item-count">{itemsQuantity}</div>
           </Link>
         </li>
         <li className={location.pathname == "/profile" ? "active" : ""}>

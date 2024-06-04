@@ -1,14 +1,19 @@
 import React from "react";
 import "./CartItem.css";
 import { VscAdd, VscRemove } from "react-icons/vsc";
-import { type CartItem, type Product } from '../../types'
+import { type CartItem, type Product } from "../../types";
+import { formatProductPrice } from "../../utils/price-formatter";
 interface CartItemProps {
-  cartItem: CartItem
-  addToCart(product: Product): void
-  removeFromCart(product: Product): void
+  cartItem: CartItem;
+  addToCart(product: Product): void;
+  removeFromCart(product: Product): void;
 }
 
-const CartItem: React.FC<CartItemProps> = ({ cartItem, addToCart, removeFromCart }) => {
+const CartItem: React.FC<CartItemProps> = ({
+  cartItem,
+  addToCart,
+  removeFromCart,
+}) => {
   return (
     <div className="cart-item-container">
       <div className="cart-item-card">
@@ -20,7 +25,7 @@ const CartItem: React.FC<CartItemProps> = ({ cartItem, addToCart, removeFromCart
         </div>
         <div className="cart-item-price-container">
           <p className="cart-item-price">
-            R$ {cartItem.product.price.toLocaleString()}
+            {formatProductPrice(cartItem.product.price)}
           </p>
         </div>
       </div>

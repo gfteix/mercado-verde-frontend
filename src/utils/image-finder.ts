@@ -17,9 +17,9 @@ function getProductImage(productName: string): string {
     laranja: laranjaImage,
     kiwi: kiwiImage,
     "limão siciliano": limaoSicilianoImage,
-    "pimentão": pimentaoImage,
+    pimentão: pimentaoImage,
     alface: alfaceImage,
-    cebola: cebolaImage
+    cebola: cebolaImage,
   };
 
   return mapper[productName.toLowerCase()] ?? "";

@@ -75,6 +75,10 @@ const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     setCartItems([]);
   }
 
+  function getItemsQuantity() {
+    return cartItems.reduce((total, item) => total + item.quantity, 0);
+  }
+
   function getCartTotal() {
     return cartItems.reduce(
       (total, item) => total + item.product.price * item.quantity,
@@ -89,7 +93,7 @@ const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
         addToCart,
         removeFromCart,
         clearCart,
-        itemsQuantity: cartItems.length,
+        itemsQuantity: getItemsQuantity(),
         total: getCartTotal(),
       }}
     >
