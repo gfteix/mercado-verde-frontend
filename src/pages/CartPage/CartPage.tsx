@@ -23,7 +23,7 @@ const CartPage = () => {
           ))}
         </div>
         <div className="button-container">
-          <button className="order-btn" onClick={() => clearCart()}>
+          <button className="order-btn" onClick={() => clearCart()} disabled={cartItems.length < 1}>
             Fazer Pedido
           </button>
         </div>

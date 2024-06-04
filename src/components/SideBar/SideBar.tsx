@@ -41,8 +41,8 @@ const Sidebar: React.FC = () => {
           <Link to="/cart">
             <img src={CartIcon}></img>
             <span className="text">{isSidebarOpen && "Carrinho"}</span>
-            <div className="item-count">{itemsQuantity}</div>
           </Link>
+          <div className="item-count">{itemsQuantity}</div>
         </li>
         <li className={location.pathname == "/profile" ? "active" : ""}>
           <Link to="/profile">
