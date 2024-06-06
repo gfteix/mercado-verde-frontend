@@ -9,5 +9,24 @@
 .profile-page-container .content-container {
   display: flex;
   flex-direction: row;
-  justify-content: start;
+  justify-content: space-around;
+}
+
+.options-btn {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  margin: 10px;
+  width: 10vw;
+  height: 35px;
+  cursor: pointer;
 }

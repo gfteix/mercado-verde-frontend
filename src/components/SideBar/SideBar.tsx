@@ -49,12 +49,6 @@ const Sidebar: React.FC = () => {
             <span className="text">{isSidebarOpen && "Carrinho"}</span>
           </Link>
         </li>
-        <li className={location.pathname == "/orders" ? "active" : ""}>
-          <Link to="/orders">
-            <img src={CartIcon}></img>
-            <span className="text">{isSidebarOpen && "Pedidos"}</span>
-          </Link>
-        </li>
         <li className={location.pathname == "/profile" ? "active" : ""}>
           <Link to="/profile">
             <img src={PersonIcon}></img>

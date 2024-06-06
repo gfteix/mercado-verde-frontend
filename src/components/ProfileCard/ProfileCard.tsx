@@ -1,5 +1,4 @@
 import React from "react";
-import { VscEdit } from "react-icons/vsc";
 import "./ProfileCard.css";
 
 interface ProfileCardProps {
@@ -22,7 +21,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ user }) => {
     <div className="profile-card">
       <div className="name-container">
         <h3>
-          {user.name} <VscEdit />{" "}
+          {user.name}
         </h3>
       </div>
       <div className="data-container">

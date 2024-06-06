@@ -14,6 +14,9 @@
 
   cursor: pointer;
 }
+.category-card.selected {
+  border: 1px solid #3dcd94;
+}
 
 .category-image {
   justify-content: center;
