@@ -4,6 +4,7 @@ import "./SideBar.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import SearchIcon from "../../assets/search.svg";
 import PersonIcon from "../../assets/person.svg";
+import Logo from "../../assets/logo.svg";
 import CartIcon from "../../assets/cart.svg";
 import HomeIcon from "../../assets/home.svg";
 import { useAuth } from "../../contexts/auth";
@@ -25,6 +26,9 @@ const Sidebar: React.FC = () => {
 
   return (
     <div className={`sidebar ${isSidebarOpen ? "open" : ""}`}>
+        <div className="logo">
+          <img src={Logo}></img>
+        </div>
       <div className="button-container" onClick={toggleSidebar}>
         <div className="m-icon">M</div>
         <span className="text">{isSidebarOpen && "Mercado Verde"}</span>

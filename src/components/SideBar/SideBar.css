@@ -1,20 +1,30 @@
 .sidebar {
   height: 100%;
   width: 80px; /* Width when partially open */
-  position: absolute;
+  position: fixed;
+  top: 0;
   left: 0;
   background-color: white;
   overflow-x: hidden;
   transition: width 0.3s;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 15px;
   align-items: center;
   text-align: center;
 }
 
 .sidebar.open {
   width: 250px; /* Full width when open */
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
 }
 
 .sidebar ul {
@@ -134,4 +144,8 @@
 
 .close-btn:hover {
   color: #f1f1f1;
+}
+
+.logo img {
+  width: 50px;
 }
