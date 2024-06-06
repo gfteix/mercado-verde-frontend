@@ -2,9 +2,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
-import ProductsPage from "./pages/ProductsPage/ProductsPage";
 import CartPage from "./pages/CartPage/CartPage";
-import SearchPage from "./pages/SearchPage/SearchPage";
 import PublicLayout from "./layouts/public-layouts";
 import ApplicationLayout from "./layouts/application-layouts";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
@@ -12,6 +10,7 @@ import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import { AuthProvider, useAuth } from "./contexts/auth";
 import { CartProvider } from "./contexts/cart";
 import OrdersPage from "./pages/OrdersPage/OrdersPage";
+import ProductsPage from "./pages/ProductsPage/ProductsPage";
 
 interface PrivateRouteProps {
   element: React.ReactElement;
@@ -41,11 +40,6 @@ function App() {
               <Route
                 index
                 element={<PrivateRoute element={<ProductsPage />} />}
-              />
-              <Route
-                path="search"
-                index
-                element={<PrivateRoute element={<SearchPage />} />}
               />
               <Route
                 path="cart"

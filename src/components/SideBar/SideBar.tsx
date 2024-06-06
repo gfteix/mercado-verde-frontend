@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import "./SideBar.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import SearchIcon from "../../assets/search.svg";
 import PersonIcon from "../../assets/person.svg";
 import Logo from "../../assets/logo.svg";
 import CartIcon from "../../assets/cart.svg";
@@ -39,12 +38,6 @@ const Sidebar: React.FC = () => {
           <Link to="/">
             <img src={HomeIcon}></img>
             <span className="text">{isSidebarOpen && "Home"}</span>
-          </Link>
-        </li>
-        <li className={location.pathname == "/search" ? "active" : ""}>
-          <Link to="/search">
-            <img src={SearchIcon}></img>
-            <span className="text">{isSidebarOpen && "Pesquisa"}</span>
           </Link>
         </li>
         <li className={location.pathname == "/cart" ? "active" : ""}>
