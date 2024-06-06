@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { getProducts } from "../../api/products";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import { useAuth } from "../../contexts/auth";
-import { getProductImage } from "../../utils/image-finder";
 
 import "./ProductsPage.css";
 import { Product } from "../../types/api/product.interface";
@@ -13,17 +12,23 @@ const ProductPage = () => {
 
   useEffect(() => {
     async function buildProducts() {
-      const response = await getProducts(accessToken as string);
+      const localProducts = localStorage.getItem('products')
 
-      const productList = response.products.map((p) => {
-        return {
-          ...p,
-          rating: 5,
-          image: getProductImage(p.name),
-        };
-      });
+      if (localProducts) {
+        setProducts(JSON.parse(localProducts))
+      } else {
+        const response = await getProducts(accessToken as string);
 
-      setProducts(productList);
+        const productList = response.products.map((p) => {
+          return {
+            ...p,
+            rating: 5
+          };
+        });
+  
+        setProducts(productList);
+        localStorage.setItem('products', JSON.stringify(productList));
+      }
     }
 
     buildProducts();

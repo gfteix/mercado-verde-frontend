@@ -12,7 +12,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ category }) => {
   return (
     <div className="category-card">
       <div className="category-image">
-        <img src={category.image}></img>
+        <img src={`data:image/jpeg;base64,${category.image}`}></img>
       </div>
       <div className="category-name">
         <h3>{category.name}</h3>

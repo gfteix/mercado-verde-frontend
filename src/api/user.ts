@@ -1,46 +1,5 @@
+import { LoginPayload, LoginResponse, RegisterPayload, User } from "../types";
 import { API_URL } from "./config";
-
-export interface RegisterPayload {
-  email: string;
-  password: string;
-  name: string;
-  street: string;
-  houseNumber: string;
-  neighborhood: string;
-  state: string;
-  city: string;
-  country: string;
-  zipCode: string;
-}
-
-export interface LoginPayload {
-  email: string;
-  password: string;
-}
-
-export interface User {
-  id: string;
-  name: string;
-  email: string;
-  street: string;
-  houseNumber: string;
-  neighborhood: string;
-  city: string;
-  state: string;
-  country: string;
-  zipCode: string;
-  createdAt: Date;
-  updatedAt: Date;
-}
-
-export interface RegisterResponse {
-  user: User;
-  accessToken: string;
-}
-
-export interface LoginResponse {
-  accessToken: string;
-}
 
 export const register = async (data: RegisterPayload) => {
   const response = await fetch(`${API_URL}/users`, {

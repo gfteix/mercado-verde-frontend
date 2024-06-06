@@ -1,3 +1,5 @@
+import { Category } from ".";
+
 export interface Product {
   id: string;
   name: string;
@@ -6,12 +8,7 @@ export interface Product {
   imageUrl: string;
   createdAt: string;
   updatedAt: string;
-  category: {
-    id: string;
-    name: string;
-    createdAt: string;
-    imageUrl: string;
-  };
+  category: Category;
   rating?: number;
   image: string;
 }

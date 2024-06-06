@@ -11,6 +11,7 @@ import ProfilePage from "./pages/ProfilePage/ProfilePage";
 
 import { AuthProvider, useAuth } from "./contexts/auth";
 import { CartProvider } from "./contexts/cart";
+import OrdersPage from "./pages/OrdersPage/OrdersPage";
 
 interface PrivateRouteProps {
   element: React.ReactElement;
@@ -50,6 +51,11 @@ function App() {
                 path="cart"
                 index
                 element={<PrivateRoute element={<CartPage />} />}
+              />
+              <Route
+                path="orders"
+                index
+                element={<PrivateRoute element={<OrdersPage />} />}
               />
               <Route
                 path="profile"

@@ -18,6 +18,9 @@ header {
   margin-right: 50px;
 }
 
+.logo img {
+  width: 50px;
+}
 .home {
   font-size: 16px;
   color: #3d3d3d;

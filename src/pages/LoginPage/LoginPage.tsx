@@ -6,13 +6,8 @@ const LoginPage = () => {
     <main className="login-page-container">
       <div className="login-content-container">
         <div className="welcome-container">
+          <br></br>
           <h2>Login</h2>
-          <br></br>
-          <br></br>
-          <h3 className="welcome-message">
-            Olá, seja bem vindo ao{" "}
-            <a className="mercado-verde">Mercado Verde!</a>
-          </h3>
         </div>
         <LoginForm />
       </div>

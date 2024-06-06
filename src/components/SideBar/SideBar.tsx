@@ -1,21 +1,27 @@
 // src/components/Sidebar.tsx
 import React, { useState } from "react";
 import "./SideBar.css";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SearchIcon from "../../assets/search.svg";
 import PersonIcon from "../../assets/person.svg";
 import CartIcon from "../../assets/cart.svg";
 import HomeIcon from "../../assets/home.svg";
-import { useCart } from "../../contexts/cart";
+import { useAuth } from "../../contexts/auth";
 
 const Sidebar: React.FC = () => {
+  const { signOut } = useAuth()
   const location = useLocation();
+  const navigate = useNavigate();
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
-  const { itemsQuantity } = useCart();
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
+
+  const handleSignOut = () => {
+    signOut()
+    navigate("/login");
+  }
 
   return (
     <div className={`sidebar ${isSidebarOpen ? "open" : ""}`}>
@@ -42,13 +48,21 @@ const Sidebar: React.FC = () => {
             <img src={CartIcon}></img>
             <span className="text">{isSidebarOpen && "Carrinho"}</span>
           </Link>
-          <div className="item-count">{itemsQuantity}</div>
+        </li>
+        <li className={location.pathname == "/orders" ? "active" : ""}>
+          <Link to="/orders">
+            <img src={CartIcon}></img>
+            <span className="text">{isSidebarOpen && "Pedidos"}</span>
+          </Link>
         </li>
         <li className={location.pathname == "/profile" ? "active" : ""}>
           <Link to="/profile">
             <img src={PersonIcon}></img>
             <span className="text">{isSidebarOpen && "Perfil"}</span>
           </Link>
+        </li>
+        <li className="exit" onClick={handleSignOut}>
+          Sair
         </li>
       </ul>
     </div>

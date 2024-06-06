@@ -15,7 +15,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     <div className="product-card">
       <div className="unit-tag">Unidade</div>
       <div className="image-container">
-        <img src={product.image} alt={product.name} className="product-image" />
+        <img src={`data:image/jpeg;base64,${product.image}`} alt={product.name} className="product-image" />
       </div>
       <div className="card-bottom">
         <div className="card-bottom-left">

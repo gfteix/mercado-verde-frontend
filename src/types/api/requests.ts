@@ -15,3 +15,10 @@ export interface LoginPayload {
   email: string;
   password: string;
 }
+
+export interface CreateOrderPayload {
+  items: {
+    productId: string;
+    quantity: number;
+  }[]
+}
