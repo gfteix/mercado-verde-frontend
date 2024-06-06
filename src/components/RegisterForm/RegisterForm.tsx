@@ -1,8 +1,8 @@
 import React, { useState, FormEvent, ChangeEvent } from "react";
-import { RegisterPayload } from "../../api/user";
 import "./RegisterForm.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/auth";
+import { RegisterPayload } from "../../types";
 
 const RegisterForm: React.FC = () => {
   const { signUp } = useAuth();

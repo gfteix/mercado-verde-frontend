@@ -1,8 +1,8 @@
 import React, { ChangeEvent, FormEvent, useState, useEffect } from "react";
-import { LoginPayload } from "../../api/user";
 import { Link, useNavigate } from "react-router-dom";
 import "./LoginForm.css";
 import { useAuth } from "../../contexts/auth";
+import { LoginPayload } from "../../types";
 
 const LoginForm: React.FC = () => {
   const { signIn } = useAuth();
