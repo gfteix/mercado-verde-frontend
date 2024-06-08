@@ -9,7 +9,7 @@ import HomeIcon from "../../assets/home.svg";
 import { useAuth } from "../../contexts/auth";
 
 const Sidebar: React.FC = () => {
-  const { signOut } = useAuth()
+  const { signOut } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
@@ -19,15 +19,15 @@ const Sidebar: React.FC = () => {
   };
 
   const handleSignOut = () => {
-    signOut()
+    signOut();
     navigate("/login");
-  }
+  };
 
   return (
     <div className={`sidebar ${isSidebarOpen ? "open" : ""}`}>
-        <div className="logo">
-          <img src={Logo}></img>
-        </div>
+      <div className="logo">
+        <img src={Logo}></img>
+      </div>
       <div className="button-container" onClick={toggleSidebar}>
         <div className="m-icon">M</div>
         <span className="text">{isSidebarOpen && "Mercado Verde"}</span>
@@ -52,10 +52,12 @@ const Sidebar: React.FC = () => {
             <span className="text">{isSidebarOpen && "Perfil"}</span>
           </Link>
         </li>
-        <li className="exit" onClick={handleSignOut}>
-          Sair
-        </li>
       </ul>
+      <div className="exit-container">
+        <a className="exit" onClick={handleSignOut}>
+          Sair
+        </a>
+      </div>
     </div>
   );
 };

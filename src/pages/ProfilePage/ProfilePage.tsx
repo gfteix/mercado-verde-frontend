@@ -5,13 +5,13 @@ import "./ProfilePage.css";
 
 const ProfilePage = () => {
   const { user } = useAuth();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleSignOut = () => {
-    signOut()
+    signOut();
     navigate("/login");
-  }
-  
+  };
+
   const formattedUser = {
     email: user?.email ?? "",
     name: user?.name ?? "",
@@ -33,8 +33,12 @@ const ProfilePage = () => {
       <div className="content-container">
         <ProfileCard user={formattedUser} key={user?.id ?? ""} />
         <div className="options-container">
-          <Link className="options-btn" to="/orders">Histórico de Pedidos</Link>
-          <a className="options-btn" onClick={handleSignOut}>Sair</a>
+          <Link className="options-btn" to="/orders">
+            Histórico de Pedidos
+          </Link>
+          <a className="options-btn" onClick={handleSignOut}>
+            Sair
+          </a>
         </div>
       </div>
     </main>
@@ -45,4 +49,3 @@ export default ProfilePage;
 function signOut() {
   throw new Error("Function not implemented.");
 }
-

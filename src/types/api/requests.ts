@@ -20,5 +20,5 @@ export interface CreateOrderPayload {
   items: {
     productId: string;
     quantity: number;
-  }[]
+  }[];
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import { Order } from "../../types";
-import "./OrderCard.css"
+import "./OrderCard.css";
 import { formatProductPrice } from "../../utils/price-formatter";
 
 interface OrderCardProps {
@@ -13,7 +13,7 @@ const OrderCard: React.FC<OrderCardProps> = ({ order, index }) => {
     <div className="order-card">
       <div className="order-index">
         <p>Número do Pedido</p>
-        <p># 00{index+1}</p>
+        <p># 00{index + 1}</p>
       </div>
       <div className="order-total">
         <p>Total</p>
@@ -21,7 +21,7 @@ const OrderCard: React.FC<OrderCardProps> = ({ order, index }) => {
       </div>
       <div className="order-date">
         <p>Data</p>
-        <h3>{new Date(order.createdAt).toLocaleDateString('pt-BR')}</h3>
+        <h3>{new Date(order.createdAt).toLocaleDateString("pt-BR")}</h3>
       </div>
     </div>
   );

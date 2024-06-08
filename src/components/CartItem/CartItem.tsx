@@ -18,7 +18,7 @@ const CartItem: React.FC<CartItemProps> = ({
     <div className="cart-item-container">
       <div className="cart-item-card">
         <div className="cart-item-image">
-          <img  src={`data:image/jpeg;base64,${cartItem.product.image}`}></img>
+          <img src={`data:image/jpeg;base64,${cartItem.product.image}`}></img>
         </div>
         <div className="cart-item-name-container">
           <p className="cart-item-name">{cartItem.product.name}</p>

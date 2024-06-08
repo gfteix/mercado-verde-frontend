@@ -1,10 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 import React, { ReactNode, createContext, useContext, useState } from "react";
-import {
-  getUser,
-  login,
-  register,
-} from "../api/user";
+import { getUser, login, register } from "../api/user";
 import { LoginPayload, RegisterPayload, User } from "../types";
 
 interface AuthContextData {

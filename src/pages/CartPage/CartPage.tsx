@@ -6,18 +6,18 @@ import { createOrder } from "../../api/order";
 import { useAuth } from "../../contexts/auth";
 
 const CartPage = () => {
-  const { accessToken } = useAuth()
+  const { accessToken } = useAuth();
   const { cartItems, addToCart, removeFromCart, total, clearCart } = useCart();
 
   async function handleOrderClick() {
-    const items = cartItems.map(cartItem => ({
+    const items = cartItems.map((cartItem) => ({
       productId: cartItem.product.id,
-      quantity: cartItem.quantity
-    }))
+      quantity: cartItem.quantity,
+    }));
 
-    const order = await createOrder(accessToken as string, { items })
-    console.log(order)
-    clearCart()
+    const order = await createOrder(accessToken as string, { items });
+    console.log(order);
+    clearCart();
   }
 
   return (
@@ -37,7 +37,11 @@ const CartPage = () => {
           ))}
         </div>
         <div className="button-container">
-          <button className="order-btn" onClick={handleOrderClick} disabled={cartItems.length < 1}>
+          <button
+            className="order-btn"
+            onClick={handleOrderClick}
+            disabled={cartItems.length < 1}
+          >
             Fazer Pedido
           </button>
         </div>

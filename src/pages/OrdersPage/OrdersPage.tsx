@@ -3,20 +3,20 @@ import OrderCard from "../../components/OrderCard/OrderCard";
 import { Order } from "../../types";
 import { getOrders } from "../../api/order";
 import { useAuth } from "../../contexts/auth";
-import "./OrdersPage.css"
+import "./OrdersPage.css";
 
 const OrdersPage = () => {
-    const { accessToken } = useAuth();
-    const [orders, setOrders] = useState<Order[]>([]);
-  
-    useEffect(() => {
-      async function buildOrders() {
-        const response = await getOrders(accessToken as string);
-        setOrders(response.orders);
-      }
-  
-      buildOrders();
-    }, [accessToken]);
+  const { accessToken } = useAuth();
+  const [orders, setOrders] = useState<Order[]>([]);
+
+  useEffect(() => {
+    async function buildOrders() {
+      const response = await getOrders(accessToken as string);
+      setOrders(response.orders);
+    }
+
+    buildOrders();
+  }, [accessToken]);
 
   return (
     <main className="orders-page-container">

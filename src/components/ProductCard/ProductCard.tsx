@@ -1,21 +1,26 @@
 import React from "react";
 import "./ProductCard.css";
-import { useCart } from "../../contexts/cart";
 import { formatProductPrice } from "../../utils/price-formatter";
 import { Product } from "../../types";
 
 export interface ProductCardProps {
   product: Product;
+  handleAddToCart(product: Product): void;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
-  const { addToCart } = useCart();
-
+const ProductCard: React.FC<ProductCardProps> = ({
+  product,
+  handleAddToCart,
+}) => {
   return (
     <div className="product-card">
       <div className="unit-tag">Unidade</div>
       <div className="image-container">
-        <img src={`data:image/jpeg;base64,${product.image}`} alt={product.name} className="product-image" />
+        <img
+          src={`data:image/jpeg;base64,${product.image}`}
+          alt={product.name}
+          className="product-image"
+        />
       </div>
       <div className="card-bottom">
         <div className="card-bottom-left">
@@ -30,7 +35,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         </div>
         <div className="card-bottom-right">
           <button
-            onClick={() => addToCart(product)}
+            onClick={() => handleAddToCart(product)}
             className="add-to-cart-button"
           >
             +

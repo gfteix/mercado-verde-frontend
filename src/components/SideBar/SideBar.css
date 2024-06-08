@@ -62,12 +62,11 @@
   top: 10vh;
 }
 
-
 .sidebar ul li.active a {
   background-color: #3dcd94;
 }
 
-.sidebar.open ul li a { 
+.sidebar.open ul li a {
   justify-content: flex-start;
 }
 
@@ -148,4 +147,10 @@
 
 .logo img {
   width: 50px;
+}
+
+.exit-container {
+  position: absolute;
+  bottom: 5vh;
+  cursor: pointer;
 }
